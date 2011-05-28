@@ -1,0 +1,24 @@
+<h1>Listing debates</h1>
+
+<table>
+  <tr>
+    <th>Proposition</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @debates.each do |debate| %>
+  <tr>
+    <td><%= debate.proposition %></td>
+    <td><%= debate.content %></td>
+    <td><%= link_to 'Show', debate %></td>
+    <td><%= link_to 'Edit', edit_debate_path(debate) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Create a new debate', new_debate_path %>

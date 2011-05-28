@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Proposition:</b>
+  <%= @debate.proposition %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @debate.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_debate_path(@debate) %> |
+<%= link_to 'Back', debates_path %>

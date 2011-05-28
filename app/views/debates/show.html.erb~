@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @debate.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @debate.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @debate.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_debate_path(@debate) %> |
+<%= link_to 'Back', debates_path %>
