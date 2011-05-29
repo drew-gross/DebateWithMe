@@ -1,22 +1,18 @@
-<h1>Listing debates</h1>
+<h1>Wolcome to Debate.me!</h1>
 
-<table>
-  <tr>
-    <th>Proposition</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p>
+  Debate.me is a site that lets you debate your friends. You can easily cite sources, and refute or support
+  specific points that your opponent has made.
+</p>
+
+<h2>Current Public Debates</h2>
 
 <% @debates.each do |debate| %>
-  <tr>
-    <td><%= debate.proposition %></td>
-    <td><%= link_to 'Show', debate %></td>
-    <td><%= link_to 'Edit', edit_debate_path(debate) %></td>
-  </tr>
+  <p>
+    <%= link_to debate.proposition, debate %><br />
+  </p>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'Create a new debate', new_debate_path %>
+<%= link_to 'Create a public debate', new_debate_path %>

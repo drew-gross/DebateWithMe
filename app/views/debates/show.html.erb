@@ -6,22 +6,12 @@
 </p>
 
 <h2>Supporting Points</h2>
-<% @debate.responses.each do |response| %>
-  <p>
-    <%= response.body %>
-  </p>
-<% end %>
+<%= render :partial => "responses/response", :collection => @debate.responses %>
 
 
 <h2>Support this proposition:</h2>
-<%= form_for([@debate, @debate.responses.build]) do |f| %>
-  <div class="field">
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= render "responses/form" %>
 
 <%= link_to 'Edit Proposition', edit_debate_path(@debate) %> |
-<%= link_to 'Back to all debates', debates_path %>
+<%= link_to 'Back to all debates', debates_path %> | 
+<%= link_to 'Delete this debate', @debate, :method => :delete %>
