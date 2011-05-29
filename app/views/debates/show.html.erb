@@ -1,17 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Proposition:</b>
+  <h1>Proposition:</h1>
   <%= @debate.proposition %>
 </p>
 
-<h2>Supporting Points</h2>
-<%= render :partial => "responses/response", :collection => @debate.responses %>
+<div id="points">
+  <div id="supporting">
+    <p>
+      <b>Supporting Points</b>
+    </p>
+    <%= render :partial => "responses/response", :collection => @debate.responses %>
+    
+    <p>
+      <b>Support this proposition:</b>
+    </p>
+    <%= render "responses/form" %>
+  </div>
 
+  <div id="refuting">
+    <p>
+      <b>Refuting Points</b>
+    </p>
+    <%= render :partial => "responses/response", :collection => @debate.responses %>
 
-<h2>Support this proposition:</h2>
-<%= render "responses/form" %>
+    <p>
+      <b>Refute this proposition:</b>
+    </p>
+    <%= render "responses/form" %>
+  </div>
+</div>
+  
 
-<%= link_to 'Edit Proposition', edit_debate_path(@debate) %> |
-<%= link_to 'Back to all debates', debates_path %> | 
-<%= link_to 'Delete this debate', @debate, :method => :delete %>
+<div id="footer">
+  <%= link_to 'Edit Proposition', edit_debate_path(@debate) %> |
+  <%= link_to 'Back to all debates', debates_path %> | 
+  <%= link_to 'Delete this debate', @debate, :method => :delete %>
+</div>

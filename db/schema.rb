@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529023854) do
+ActiveRecord::Schema.define(:version => 20110529174656) do
 
   create_table "debates", :force => true do |t|
     t.string   "proposition"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20110529023854) do
     t.integer  "debate_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "supporting"
   end
 
 end

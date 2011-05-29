@@ -46,7 +46,7 @@ class DebatesController < ApplicationController
 
     respond_to do |format|
       if @debate.save
-        format.html { redirect_to(@debate, :notice => 'Debate was successfully created.') }
+        format.html { redirect_to @debate }
         format.xml  { render :xml => @debate, :status => :created, :location => @debate }
       else
         format.html { render :action => "new" }
