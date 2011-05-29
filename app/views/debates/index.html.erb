@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Proposition</th>
-    <th>Content</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +11,6 @@
 <% @debates.each do |debate| %>
   <tr>
     <td><%= debate.proposition %></td>
-    <td><%= debate.content %></td>
     <td><%= link_to 'Show', debate %></td>
     <td><%= link_to 'Edit', edit_debate_path(debate) %></td>
   </tr>

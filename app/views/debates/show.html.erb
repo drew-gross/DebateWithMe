@@ -5,11 +5,23 @@
   <%= @debate.proposition %>
 </p>
 
-<p>
-  <b>Content:</b>
-  <%= @debate.content %>
-</p>
+<h2>Supporting Points</h2>
+<% @debate.responses.each do |response| %>
+  <p>
+    <%= response.body %>
+  </p>
+<% end %>
 
 
-<%= link_to 'Edit', edit_debate_path(@debate) %> |
-<%= link_to 'Back', debates_path %>
+<h2>Support this proposition:</h2>
+<%= form_for([@debate, @debate.responses.build]) do |f| %>
+  <div class="field">
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit Proposition', edit_debate_path(@debate) %> |
+<%= link_to 'Back to all debates', debates_path %>

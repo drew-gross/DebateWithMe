@@ -1,5 +1,7 @@
 RebutMe::Application.routes.draw do
-  resources :debates
+  resources :debates do
+    resources :responses
+  end
 
   get "home/index"
 
