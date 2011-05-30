@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-RebutMe::Application.config.secret_token = 'e4677aa3f5c4ba6452016d0ab33ae3799d8f0f5760942696607a25a1c0134db10c9fbeabd91d21dc0b87360e9cc20d4e1ea3b05b2e3f572b6d94d6c10a6bc10b'
+RebutMe::Application.config.secret_token = 'b655ef5610a826a3dd3b28d6f4c2f5a8d6d3996cc2e3c5b9f326e8abab37551a5f890e68192082da6c2f1f123e61ea3c215edd4127021840751b4859573d346f'

@@ -1,6 +1,4 @@
 class DebatesController < ApplicationController
-  before_filter :authenticate, :only => :destroy
-
   # GET /debates
   # GET /debates.xml
   def index
@@ -46,7 +44,7 @@ class DebatesController < ApplicationController
 
     respond_to do |format|
       if @debate.save
-        format.html { redirect_to @debate }
+        format.html { redirect_to(@debate, :notice => 'Debate was successfully created.') }
         format.xml  { render :xml => @debate, :status => :created, :location => @debate }
       else
         format.html { render :action => "new" }
@@ -74,10 +72,11 @@ class DebatesController < ApplicationController
   # DELETE /debates/1
   # DELETE /debates/1.xml
   def destroy
-    Debate.find(params[:id]).destroy
+    @debate = Debate.find(params[:id])
+    @debate.destroy
 
     respond_to do |format|
-      format.html { redirect_to(debates_path) }
+      format.html { redirect_to(debates_url) }
       format.xml  { head :ok }
     end
   end

@@ -1,39 +1,52 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <h1>Proposition:</h1>
-  <%= @debate.proposition %>
+  <b>Title:</b>
+  <%= @debate.title %>
 </p>
 
-<div id="points">
-  <div id="supporting">
-    <p>
-      <b>Supporting Points</b>
-    </p>
-    <%= render :partial => "responses/response", :collection => @debate.responses %>
-    
-    <p>
-      <b>Support this proposition:</b>
-    </p>
-    <%= render "responses/form" %>
-  </div>
+<p>
+  Supporting Points:
+</p>
+<% @debate.supports.each do |support| %>
+<p>
+  <%= support.body %>
+</p>
+<% end %>
 
-  <div id="refuting">
-    <p>
-      <b>Refuting Points</b>
-    </p>
-    <%= render :partial => "responses/response", :collection => @debate.responses %>
-
-    <p>
-      <b>Refute this proposition:</b>
-    </p>
-    <%= render "responses/form" %>
-  </div>
+<p>
+  Support this point:
+</p>
+<%= form_for([@debate, @debate.supports.build]) do |f| %>
+<div class="field">
+  <%= f.text_area :body %>
 </div>
-  
-
-<div id="footer">
-  <%= link_to 'Edit Proposition', edit_debate_path(@debate) %> |
-  <%= link_to 'Back to all debates', debates_path %> | 
-  <%= link_to 'Delete this debate', @debate, :method => :delete %>
+<div class="actions">
+  <%= f.submit %>
 </div>
+<% end %>
+
+<p>
+  Contesting Points:
+</p>
+<% @debate.contests.each do |contest| %>
+<p>
+  <%= contest.body %>
+</p>
+<% end %>
+
+<p>
+  Contest this point:
+</p>
+<%= form_for([@debate, @debate.contests.build]) do |f| %>
+<div class="field">
+  <%= f.text_area :body %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_debate_path(@debate) %>
+<%= link_to 'Back', debates_path %>

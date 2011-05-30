@@ -1,5 +1,6 @@
 class Debate < ActiveRecord::Base
-      validates :proposition, :presence => true
+  validates :title, :presence => true
 
-      has_many :responses, :dependent => :destroy
+  has_many :supports
+  has_many :contests
 end

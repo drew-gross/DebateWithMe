@@ -10,20 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529174656) do
+ActiveRecord::Schema.define(:version => 20110530041708) do
 
-  create_table "debates", :force => true do |t|
-    t.string   "proposition"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "responses", :force => true do |t|
+  create_table "contests", :force => true do |t|
     t.text     "body"
     t.integer  "debate_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "supporting"
+  end
+
+  create_table "debates", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supports", :force => true do |t|
+    t.text     "body"
+    t.integer  "debate_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
