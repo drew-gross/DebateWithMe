@@ -5,47 +5,45 @@
   <%= @debate.title %>
 </p>
 
-<p>
-  Supporting Points:
-</p>
-<% @debate.supports.each do |support| %>
-<p>
-  <%= support.body %>
-</p>
-<% end %>
+<div id="main">
+  <div id="left">
+    <p>
+      Supporting Points:
+    </p>
+    <%= render :partial => "supports/support", :collection => @debate.supports %>
+    
+    <p>
+      Support this point:
+    </p>
+    <%= form_for([@debate, @debate.supports.build]) do |f| %>
+    <div class="field">
+      <%= f.text_area :body %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <% end %>
+  </div>
 
-<p>
-  Support this point:
-</p>
-<%= form_for([@debate, @debate.supports.build]) do |f| %>
-<div class="field">
-  <%= f.text_area :body %>
+  <div id="right">
+    <p>
+      Contesting Points:
+    </p>
+    <%= render :partial => "contests/contest", :collection => @debate.contests %>
+    
+    <p>
+      Contest this point:
+    </p>
+    <%= form_for([@debate, @debate.contests.build]) do |f| %>
+    <div class="field">
+      <%= f.text_area :body %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <% end %>
+  </div>
 </div>
-<div class="actions">
-  <%= f.submit %>
-</div>
-<% end %>
-
-<p>
-  Contesting Points:
-</p>
-<% @debate.contests.each do |contest| %>
-<p>
-  <%= contest.body %>
-</p>
-<% end %>
-
-<p>
-  Contest this point:
-</p>
-<%= form_for([@debate, @debate.contests.build]) do |f| %>
-<div class="field">
-  <%= f.text_area :body %>
-</div>
-<div class="actions">
-  <%= f.submit %>
-</div>
-<% end %>
 
 
 <%= link_to 'Edit', edit_debate_path(@debate) %>
