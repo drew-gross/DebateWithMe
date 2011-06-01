@@ -82,6 +82,6 @@ class DebatesController < ApplicationController
   end
 
   def bgcolor
-    @debate.supports.count - @debate.contesnts.count
+    @debate.supports.count - @debate.contests.count
   end
 end
