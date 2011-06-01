@@ -1,0 +1,11 @@
+<p>
+  Support this point:
+</p>
+<%= form_for([@debate, @debate.supports.build]) do |f| %>
+<div class="field">
+  <%= f.text_area :body %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

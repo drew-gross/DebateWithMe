@@ -1,0 +1,22 @@
+#main
+{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#left
+{
+    float:left;
+    width:500px;
+}
+
+#right
+{
+    float:right;
+    width:500px;
+}
+
+#footer
+{
+    clear:both;
+}
