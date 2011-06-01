@@ -80,4 +80,8 @@ class DebatesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def bgcolor
+    @debate.supports.count - @debate.contesnts.count
+  end
 end

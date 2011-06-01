@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @debate.title %>
-</p>
+<%= render :partial => "debates/showtitle", :locals => {:debate => @debate} %>
 
 <div id="main">
   <div id="left">
@@ -12,17 +9,7 @@
     </p>
     <%= render :partial => "supports/support", :collection => @debate.supports %>
     
-    <p>
-      Support this point:
-    </p>
-    <%= form_for([@debate, @debate.supports.build]) do |f| %>
-    <div class="field">
-      <%= f.text_area :body %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-    <% end %>
+    <%= render "supports/form" %>
   </div>
 
   <div id="right">
@@ -31,20 +18,11 @@
     </p>
     <%= render :partial => "contests/contest", :collection => @debate.contests %>
     
-    <p>
-      Contest this point:
-    </p>
-    <%= form_for([@debate, @debate.contests.build]) do |f| %>
-    <div class="field">
-      <%= f.text_area :body %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-    <% end %>
+    <%= render "contests/form" %>
   </div>
 </div>
 
-
-<%= link_to 'Edit', edit_debate_path(@debate) %>
-<%= link_to 'Back', debates_path %>
+<div id="footer">
+  <%= link_to 'Edit', edit_debate_path(@debate) %>
+  <%= link_to 'Back', debates_path %>
+</div>
