@@ -1,8 +1,8 @@
-<p>
+<p style="background-color:#<%= debate.bg_color %>;" >
   <b>Title:</b>
   <%= debate.title %>
 </p>
 <p>
   <b>Total support:</b>
-  <%= debate.supports.count - debate.contests.count %>
+  <%= debate.total_supports %>
 </p>
