@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530041708) do
+ActiveRecord::Schema.define(:version => 20110609002043) do
 
   create_table "contests", :force => true do |t|
     t.text     "body"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20110530041708) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_supporting"
   end
 
   create_table "supports", :force => true do |t|
