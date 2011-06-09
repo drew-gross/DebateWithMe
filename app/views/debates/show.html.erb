@@ -1,28 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<%= render :partial => "debates/showtitle", :locals => {:debate => @debate} %>
+<p>
+  <b>Proposition:</b>
+  <%= @debate.proposition %>
+</p>
 
-<div id="main">
-  <div id="left">
-    <p>
-      Supporting Points:
-    </p>
-    <%= render :partial => "supports/support", :collection => @debate.supports %>
-    
-    <%= render "supports/form" %>
-  </div>
+<p>
+  <b>Debate:</b>
+  <%= @debate.debate %>
+</p>
 
-  <div id="right">
-    <p>
-      Contesting Points:
-    </p>
-    <%= render :partial => "contests/contest", :collection => @debate.contests %>
-    
-    <%= render "contests/form" %>
-  </div>
-</div>
+<p>
+  <b>Is supporting:</b>
+  <%= @debate.is_supporting %>
+</p>
 
-<div id="footer">
-  <%= link_to 'Edit', edit_debate_path(@debate) %>
-  <%= link_to 'Back', debates_path %>
-</div>
+<p>
+  <b>Content:</b>
+  <%= @debate.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_debate_path(@debate) %> |
+<%= link_to 'Back', debates_path %>

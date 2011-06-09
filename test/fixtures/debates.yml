@@ -1,7 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
+  proposition: MyString
+  debate: 
+  is_supporting: false
+  content: MyText
 
 two:
-  title: MyString
+  proposition: MyString
+  debate: 
+  is_supporting: false
+  content: MyText
