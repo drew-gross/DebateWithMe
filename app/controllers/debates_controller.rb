@@ -43,12 +43,20 @@ class DebatesController < ApplicationController
     @debate = Debate.new(params[:debate])
 
     respond_to do |format|
-      if @debate.save
-        format.html { redirect_to(@debate, :notice => 'Debate was successfully created.') }
-        format.xml  { render :xml => @debate, :status => :created, :location => @debate }
+      if @debate.debate == nil
+        if @debate.save
+      	  format.html { redirect_to(@debate, :notice => 'Debate was successfully created.') }
+          format.xml  { render :xml => @debate, :status => :created, :location => @debate }
+      	else	      
+          format.html { render :action => "new" }
+	  format.xml  { render :xml => @debate.errors, :status => :unprocessable_entity }
+ 	end
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @debate.errors, :status => :unprocessable_entity }
+        if @debate.save
+	  format.html { redirect_to(@debate.debate, :notice => 'Debate was successfully create.') }
+	else
+	  format.html { render :action => "new" }
+	end
       end
     end
   end
@@ -57,6 +65,7 @@ class DebatesController < ApplicationController
   # PUT /debates/1.xml
   def update
     @debate = Debate.find(params[:id])
+
 
     respond_to do |format|
       if @debate.update_attributes(params[:debate])
