@@ -6,18 +6,33 @@
 </p>
 
 <p>
-  <b>Debate:</b>
-  <%= @debate.debate %>
-</p>
-
-<p>
-  <b>Is supporting:</b>
-  <%= @debate.is_supporting %>
-</p>
-
-<p>
   <b>Content:</b>
   <%= @debate.content %>
+</p>
+
+<p>
+  <b>Add a supporting point:</b>
+  <%= form_for(@debate) do |support_form| %>
+    <% if @debate.errors.any? %>
+      <div id="error_explanation">
+	<h2><%= pluralize(@debate.errors.count, "error") %> prohibited this point from being saved:</h2>
+	
+	<ul>
+	  <% @debate.errors.full_messages.each do |msg| %>
+	    <li><%= msg %></li>
+	  <% end %>
+	</ul>
+      </div>
+    <% end %>
+  
+    <div>
+      <%= support_form.label :content %><br />
+      <%= support_form.text_area :content %>
+    </div>
+    <div class="actions">
+      <%= support_form.submit %>
+    </div>
+  <% end %>
 </p>
 
 
