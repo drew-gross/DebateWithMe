@@ -1,10 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Proposition:</b>
-  <%= @debate.proposition %>
-</p>
-
+<%= render :partial => "debates/parent_chain", :locals => { :debate => @debate } %>
+<b>Blah</b>
+<% if @debate.debate == nil %>
+  <p>
+    <b>Proposition:</b>
+    <%= @debate.proposition %>
+  </p>
+<% else %>
+  <p>
+    <b>Parent:</b>
+    <%= @debate.debate.content %>
+  </p>
+<% end %>
 <p>
   <b>Content:</b>
   <%= @debate.content %>

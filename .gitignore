@@ -5,3 +5,4 @@ tmp/
 *.erb#
 *.erb~b#
 *.rb#
+*.erb~
