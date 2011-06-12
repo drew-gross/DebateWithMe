@@ -1,7 +1,7 @@
 <div id="parents">
   <% if debate.debate == nil then %>
     <p style="background-color:#<%= debate.bg_color %>;" >
-      <b>Proposition:</b>
+      <b><%= link_to "Proposition:", debate_path(debate) %></b>
       <%= debate.proposition %>
     </p>
   <% else %>

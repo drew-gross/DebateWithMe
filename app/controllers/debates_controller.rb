@@ -45,7 +45,7 @@ class DebatesController < ApplicationController
     respond_to do |format|
       if @debate.debate == nil
         if @debate.save
-      	  format.html { redirect_to(@debate, :notice => 'Debate was successfully created.') }
+      	  format.html { redirect_to(@debate) }
           format.xml  { render :xml => @debate, :status => :created, :location => @debate }
       	else	      
           format.html { render :action => "new" }
@@ -53,7 +53,7 @@ class DebatesController < ApplicationController
  	end
       else
         if @debate.save
-	  format.html { redirect_to(@debate.debate, :notice => 'Debate was successfully create.') }
+	  format.html { redirect_to(@debate.debate) }
 	else
 	  format.html { render :action => "new" }
 	end
@@ -69,7 +69,7 @@ class DebatesController < ApplicationController
 
     respond_to do |format|
       if @debate.update_attributes(params[:debate])
-        format.html { redirect_to(@debate, :notice => 'Debate was successfully updated.') }
+        format.html { redirect_to(@debate) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
