@@ -1,20 +1,14 @@
-<% if debate.debate == nil then %>
-  <p>
-    <b>Proposition:</b>
-    <%= debate.proposition %>
-  </p>
-  <p>
-    <b>Content:</b>
-    <%= debate.content %>
-  </p>
-<% else %>
-  <%= render :partial => "parent_chain", :locals => { :debate => debate.debate } %>
-  <p>
-    <b>Content:</b>
-    <%= debate.content %>
-  </p>
-<% end %>
-
-  
-    
-
+<div id="parents">
+  <% if debate.debate == nil then %>
+    <p style="background-color:#<%= debate.bg_color %>;" >
+      <b>Proposition:</b>
+      <%= debate.proposition %>
+    </p>
+  <% else %>
+    <%= render :partial => "parent_chain", :locals => { :debate => debate.debate } %>
+    <p class="<%= debate.display_class %>">
+      <b>Content:</b>
+      <%= debate.content %>
+    </p>
+  <% end %>
+</div>

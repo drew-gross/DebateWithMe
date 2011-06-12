@@ -6,3 +6,4 @@ tmp/
 *.erb~b#
 *.rb#
 *.erb~
+*.css~

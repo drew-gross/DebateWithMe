@@ -1,0 +1,45 @@
+.supporting
+{
+    background-color:#4D94FF;
+}
+
+.refuting
+{
+    background-color:#FF944D;
+}
+
+.blank
+{
+    background-color:yellow;
+}
+
+
+#wrap
+{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.left
+{
+    float: left;
+    width: 500px;
+}
+
+.right
+{
+    float: right;
+    width: 500 px;
+}
+
+#footer
+{
+    clear: both;
+    margin: 0 auto;
+}
+
+#parents
+{
+    width: 500px;
+    margin: 0 auto;
+}

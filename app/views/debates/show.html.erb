@@ -1,48 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<%= render :partial => "debates/parent_chain", :locals => { :debate => @debate } %>
-<b>Blah</b>
-<% if @debate.debate == nil %>
-  <p>
-    <b>Proposition:</b>
-    <%= @debate.proposition %>
-  </p>
-<% else %>
-  <p>
-    <b>Parent:</b>
-    <%= @debate.debate.content %>
-  </p>
-<% end %>
-<p>
-  <b>Content:</b>
-  <%= @debate.content %>
-</p>
+<div id="wrap">
+  <%= render :partial => "debates/parent_chain", :locals => { :debate => @debate } %>
 
-<p>
-  <b>Add a supporting point:</b>
-  <%= form_for(@debate.debates.create) do |support_form| %>
-    <% if @debate.errors.any? %>
-      <div id="error_explanation">
-	<h2><%= pluralize(@debate.errors.count, "error") %> prohibited this point from being saved:</h2>
-	
-	<ul>
-	  <% @debate.errors.full_messages.each do |msg| %>
-	    <li><%= msg %></li>
-	  <% end %>
-	</ul>
-      </div>
-    <% end %>
+  <div class="left">
+    <p>
+      <b>Supporting Points:</b>
+      <%= render :partial => "points", 
+                 :collection => @debate.debates.find_all{|debate| debate.is_supporting == true}, 
+                 :as => :point %>
+    </p>
+
+    <p>
+      <b>Add a supporting point:</b>
+      <%= render :partial => "response_form", :locals => { :is_supporting => true } %> 
+    </p>
+  </div>
+
+  <div class="right">
+    <p>
+      <b>Contesting Points:</b>
+      <%= render :partial => "points", 
+                 :collection => @debate.debates.find_all{|debate| debate.is_supporting == false}, 
+                 :as => :point %>
+    </p>
+
+    <p>
+      <b>Add a contesting point:</b>
+      <%= render :partial => "response_form", :locals => { :is_supporting => false } %>
+    </p>
+  </div>
   
-    <div>
-      <%= support_form.label :content %><br />
-      <%= support_form.text_area :content %>
-    </div>
-    <div class="actions">
-      <%= support_form.submit %>
-    </div>
-  <% end %>
-</p>
-
-
-<%= link_to 'Edit', edit_debate_path(@debate) %> |
-<%= link_to 'Back', debates_path %>
+  <div id="footer">
+    <%= link_to 'Edit', edit_debate_path(@debate) %> |
+    <%= link_to 'Back', debates_path %>
+  </div>
+</div>
