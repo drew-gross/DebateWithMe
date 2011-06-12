@@ -9,6 +9,7 @@
     <p class="<%= debate.display_class %>">
       <b>Content:</b>
       <%= debate.content %>
+      <%= link_to "show", debate_path(debate) %>
     </p>
   <% end %>
 </div>
