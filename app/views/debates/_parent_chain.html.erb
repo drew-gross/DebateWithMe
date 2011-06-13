@@ -1,12 +1,12 @@
 <div id="parents">
   <% if debate.debate == nil then %>
-    <p <%=raw debate.generate_style %> >
+    <p <%= debate.generate_style %> >
       <b><%= link_to "Proposition:", debate_path(debate) %></b>
       <%= debate.proposition %>
     </p>
   <% else %>
     <%= render :partial => "parent_chain", :locals => { :debate => debate.debate } %>
-    <p <%=raw debate.generate_style %> >
+    <p <%= debate.generate_style %> >
       <b>Content:</b>
       <%= debate.content %>
       <%= link_to "show", debate_path(debate) %>

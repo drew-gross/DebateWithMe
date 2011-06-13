@@ -5,12 +5,14 @@
   <%= render :partial => "debates/parent_chain", :locals => { :debate => @debate } %>
 
   <div class="left">
-    <p>
-      <b>Supporting Points:</b>
-      <%= render :partial => "points", 
-                 :collection => @debate.debates.find_all{|debate| debate.is_supporting == true}, 
-                 :as => :point %>
+    <% if @debate.supporting_points.count > 0 %>
+      <p>
+	<b>Supporting Points:</b>
+	<%= render :partial => "points", 
+                   :collection => @debate.supporting_points, 
+	           :as => :point %>
     </p>
+    <% end %>
 
     <p>
       <b>Add a supporting point:</b>
@@ -19,12 +21,14 @@
   </div>
 
   <div class="right">
-    <p>
-      <b>Contesting Points:</b>
-      <%= render :partial => "points", 
-                 :collection => @debate.debates.find_all{|debate| debate.is_supporting == false}, 
-                 :as => :point %>
-    </p>
+    <% if @debate.contesting_points.count > 0 %>
+      <p>
+        <b>Contesting Points:</b>
+        <%= render :partial => "points", 
+                   :collection => @debate.contesting_points, 
+                   :as => :point %>
+      </p>
+    <% end %>
 
     <p>
       <b>Add a contesting point:</b>
@@ -34,6 +38,7 @@
   
   <div id="footer">
     <%= link_to 'Edit', edit_debate_path(@debate) %> |
-    <%= link_to 'Back', debates_path %>
+    <%= link_to 'Back', debates_path %> | 
+    <%= link_to 'Delete', @debate, :method => :delete %>
   </div>
 </div>

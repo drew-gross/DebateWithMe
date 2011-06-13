@@ -1,30 +1,25 @@
-<h1>Listing debates</h1>
+<div id="wrap">
+  <h1>Debate.me!</h1>
+  <p>
+    Debate.me is a website that allows you to have debates
+    that where each point can be individually supported, refuted,
+    and sourced. If a proposition is blue, then it has lots of
+    support. If it is red, it doesn't have much support.
+  </p>
+  <p>
+    To start debating, choose one of the debates below, or create a new debate.
+  </p>
+  
+  <b>Ongoing debates:</b>
+  <table>
+    <% @debates.find_all{|debate| debate.debate == nil}.each do |debate| %>
+    <tr>
+      <td <%= debate.generate_style %> ><%= link_to debate.proposition, debate %></td>
+    </tr>
+    <% end %>
+  </table>
 
+  <br />
 
-<table>
-  <tr>
-    <th>Proposition</th>
-    <th>Debate</th>
-    <th>Is supporting</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @debates.find_all{|debate| debate.debate == nil}.each do |debate| %>
-  <tr>
-    <td><%= debate.proposition %></td>
-    <td><%= debate.debate %></td>
-    <td><%= debate.is_supporting %></td>
-    <td><%= debate.content %></td>
-    <td><%= link_to 'Show', debate %></td>
-    <td><%= link_to 'Edit', edit_debate_path(debate) %></td>
-    <td><%= link_to 'Destroy', debate, :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Debate', new_debate_path %>
+  <%= link_to 'New Debate', new_debate_path %>
+</div>
