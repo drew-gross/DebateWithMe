@@ -49,6 +49,6 @@ class Debate < ActiveRecord::Base
   end
   
   def contesting_points
-    debates.find_all{|debate| debate.is_supporting == true}
+    debates.find_all{|debate| debate.is_supporting == false}
   end
 end 
