@@ -1,7 +1,7 @@
 <div id="parents">
   <% if debate.debate == nil then %>
     <p <%= debate.generate_style %> >
-      <b><%= link_to "Proposition:", debate_path(debate) %></b>
+      <b><%= link_to "Debate title:", debate_path(debate) %></b>
       <%= debate.proposition %>
     </p>
   <% else %>
