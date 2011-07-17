@@ -1,5 +1,10 @@
-<p style="background-color:#<%= point.bg_color %>;" >
-  <b>Content:</b>
-  <%= point.content %>
-  <%= link_to "Show", debate_path(point) %>
-</p>
+<table>
+  <tr>
+    <%= render :partial => "point", 
+               :collection => points_to_render, 
+               :as => :point %>
+    <td>
+      <%= render :partial => "response_form", :locals => { :is_supporting => is_supporting }%>
+    </td>
+  </tr>
+</table>

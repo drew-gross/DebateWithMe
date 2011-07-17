@@ -3,6 +3,11 @@ p
     text-indent:30pt;
 }
 
+.point
+{
+    margin:5px;
+}
+
 .supporting
 {
     background-color:#4D94FF;

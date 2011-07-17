@@ -6,34 +6,24 @@
 
   <div class="left">
     <% if @debate.supporting_points.count > 0 %>
-      <p>
-	<b>Supporting Points:</b>
+      <div>
+	<b>Supporting Points</b>
 	<%= render :partial => "points", 
-                   :collection => @debate.supporting_points, 
-	           :as => :point %>
-    </p>
+	           :locals => { :points_to_render => @debate.supporting_points,
+	                        :is_supporting => true } %>
+      </div>
     <% end %>
-
-    <p>
-      <b>Add a supporting point:</b>
-      <%= render :partial => "response_form", :locals => { :is_supporting => true } %> 
-    </p>
   </div>
 
   <div class="right">
     <% if @debate.contesting_points.count > 0 %>
-      <p>
-        <b>Contesting Points:</b>
-        <%= render :partial => "points", 
-                   :collection => @debate.contesting_points, 
-                   :as => :point %>
-      </p>
+      <div>
+        <b>Contesting Points</b>
+	<%= render :partial => "points", 
+	           :locals => { :points_to_render => @debate.contesting_points,
+	                        :is_supporting => false } %>
+      </div>
     <% end %>
-
-    <p>
-      <b>Add a contesting point:</b>
-      <%= render :partial => "response_form", :locals => { :is_supporting => false } %>
-    </p>
   </div>
   
   <div id="footer">

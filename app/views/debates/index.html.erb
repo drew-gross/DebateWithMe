@@ -20,6 +20,17 @@
   </table>
 
   <br />
-
-  <%= link_to 'New Debate', new_debate_path %>
+  <div id="NewDebateButton"></div>
+  <script type="text/javascript">
+    FB.Event.subscribe('auth.sessionChange', function(response) 
+    {
+      if (response.session) {
+        document.getElementById("NewDebateButton").innerHTML = '<%= link_to 'New Debate', new_debate_path %>';
+      } 
+      else 
+      {
+        document.getElementById("NewDebateButton").innerHTML = "Login to create a debate";
+      }
+    });
+  </script>
 </div>

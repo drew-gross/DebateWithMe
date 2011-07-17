@@ -8,27 +8,17 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <p><fb:login-button autologoutlink="true"></fb:login-button></p>
+  
+<div id="fb-root"></div>
 
-    <p><fb:login-button autologoutlink="true"></fb:login-button></p>
-    <p><fb:like></fb:like></p>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
 
-    <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({appId: '241135795910479', status: true, cookie: true,
-                 xfbml: true});
-      };
-      (function() {
-        var e = document.createElement('script');
-        e.type = 'text/javascript';
-        e.src = document.location.protocol +
-          '//connect.facebook.net/en_US/all.js';
-        e.async = true;
-        document.getElementById('fb-root').appendChild(e);
-      }());
-    </script>
+<script>
+  FB.init({appId: '241135795910479', status: true, cookie: true, xfbml: true});
+</script>
 
-<%= yield %>
-
+  <%= yield %>
+  
 </body>
 </html>

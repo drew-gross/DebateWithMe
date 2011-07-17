@@ -1,4 +1,6 @@
-<%= form_for(@debate.debates.build) do |support_form| %>
+<% new_debate = @debate.debates.build 
+   new_debate.content = "Add your opinion..." %>
+<%= form_for new_debate do |support_form| %>
   <% if @debate.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@debate.errors.count, "error") %> prohibited this point from being saved:</h2>
@@ -12,12 +14,11 @@
   <% end %>
   
   <div>
-    <%= support_form.label :content %><br />
-    <%= support_form.text_area :content %>
+    <%= support_form.text_area :content, :cols => 20, :rows => 10%>
   </div>
   <%= support_form.hidden_field :is_supporting, :value => is_supporting %>
   <%= support_form.hidden_field :debate_id, :value => @debate.id %>
   <div class="actions">
-    <%= support_form.submit %>
+    <%= support_form.submit "Submit" %>
   </div>
 <% end %>

@@ -41,7 +41,7 @@ class Debate < ActiveRecord::Base
   end
 
   def generate_style
-    ("style=\"background-color:" + bg_color + ";\"").html_safe
+    ('style="background-color:' + bg_color + ';"').html_safe
   end
   
   def supporting_points
