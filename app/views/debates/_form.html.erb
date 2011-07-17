@@ -17,7 +17,8 @@
     <table>
       <tr>
 	<td>
-	  <%= f.text_field :proposition %><%= f.submit %>
+	  <%= f.text_field :proposition,
+	                   :onfocus => "if (this.getValue() === '" + new_debate.proposition + "'){this.clear();}"%><%= f.submit %>
 	</td>
       </tr>
     </table>

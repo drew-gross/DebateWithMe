@@ -14,7 +14,10 @@
   <% end %>
   
   <div>
-    <%= support_form.text_area :content, :cols => 20, :rows => 10 %>
+    <%= support_form.text_area :content, 
+	                       :cols => 20, 
+                               :rows => 10,
+                               :onfocus => "if (this.getValue() === '" + new_debate.content + "'){this.clear();}" %>
   </div>
   <%= support_form.hidden_field :is_supporting, :value => is_supporting %>
   <%= support_form.hidden_field :debate_id, :value => @debate.id %>
