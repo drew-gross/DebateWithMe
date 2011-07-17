@@ -5,25 +5,17 @@
   <%= render :partial => "debates/parent_chain", :locals => { :debate => @debate } %>
 
   <div class="left">
-    <% if @debate.supporting_points.count > 0 %>
-      <div>
-	<b>Supporting Points</b>
-	<%= render :partial => "points", 
-	           :locals => { :points_to_render => @debate.supporting_points,
-	                        :is_supporting => true } %>
-      </div>
-    <% end %>
+    <b>Supporting Points</b>
+    <%= render :partial => "points", 
+               :locals => { :points_to_render => @debate.supporting_points,
+                            :is_supporting => true } %>
   </div>
 
   <div class="right">
-    <% if @debate.contesting_points.count > 0 %>
-      <div>
-        <b>Contesting Points</b>
-	<%= render :partial => "points", 
-	           :locals => { :points_to_render => @debate.contesting_points,
-	                        :is_supporting => false } %>
-      </div>
-    <% end %>
+    <b>Contesting Points</b>
+    <%= render :partial => "points", 
+	       :locals => { :points_to_render => @debate.contesting_points,
+	                    :is_supporting => false } %>
   </div>
   
   <div id="footer">

@@ -1,10 +1,12 @@
-<%= form_for(@debate) do |f| %>
-  <% if @debate.errors.any? %>
+<% new_debate = Debate.new 
+   new_debate.proposition = "Start a new debate" %>
+<%= form_for new_debate do |f| %>
+  <% if new_debate.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@debate.errors.count, "error") %> prohibited this debate from being saved:</h2>
+      <h2><%= pluralize(new_debate.errors.count, "error") %> prohibited this debate from being saved:</h2>
 
       <ul>
-      <% @debate.errors.full_messages.each do |msg| %>
+      <% new_debate.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -15,15 +17,9 @@
     <table>
       <tr>
 	<td>
-	  <%= f.label 'Debate title:' %>
-	</td>
-	<td>
-	  <%= f.text_field :proposition %>
+	  <%= f.text_field :proposition %><%= f.submit %>
 	</td>
       </tr>
     </table>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>

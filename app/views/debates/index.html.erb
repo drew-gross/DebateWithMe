@@ -12,7 +12,7 @@
   
   <b>Ongoing debates:</b>
   <table>
-    <% @debates.find_all{|debate| debate.debate == nil}.each do |debate| %>
+    <% @debates.find_all{|debate| debate.debate == nil}.sort_by{|debate| debate.created_at}.reverse.each do |debate| %>
     <tr>
       <td <%= debate.generate_style %> ><%= link_to debate.proposition, debate %></td>
     </tr>
@@ -20,12 +20,13 @@
   </table>
 
   <br />
-  <div id="NewDebateButton"></div>
+  <div id="NewDebateButton"><%= render "form" %></div>
   <script type="text/javascript">
+    var new_debate_form_html = document.getElementById("NewDebateButton").innerHTML;
     FB.Event.subscribe('auth.sessionChange', function(response) 
     {
       if (response.session) {
-        document.getElementById("NewDebateButton").innerHTML = '<%= link_to 'New Debate', new_debate_path %>';
+        document.getElementById("NewDebateButton").innerHTML = new_debate_form_html;
       } 
       else 
       {

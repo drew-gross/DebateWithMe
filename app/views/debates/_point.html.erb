@@ -1,0 +1,10 @@
+<td <%= point.generate_style %> >
+  <div class="point">
+    <div>
+      <%= point.content %>
+    </div>
+    <div>
+      <%= link_to "Children", debate_path(point) %>
+    </div>
+  </div>
+</td>
