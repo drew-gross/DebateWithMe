@@ -1,3 +1,4 @@
+<td>
 <% new_debate = @debate.debates.build 
    new_debate.content = "Add your opinion..." %>
 <%= form_for new_debate do |support_form| %>
@@ -25,3 +26,4 @@
     <%= support_form.submit "Submit" %>
   </div>
 <% end %>
+</td>

@@ -1,10 +1,15 @@
 <table>
   <tr>
-    <%= render :partial => "point", 
-               :collection => points_to_render, 
-               :as => :point %>
-    <td>
+    <% if (direction == :left) then %>
+      <%= render :partial => "point", 
+                 :collection => points_to_render, 
+                 :as => :point %>
       <%= render :partial => "response_form", :locals => { :is_supporting => is_supporting }%>
-    </td>
+    <% else %>
+      <%= render :partial => "response_form", :locals => { :is_supporting => is_supporting }%>
+      <%= render :partial => "point", 
+                 :collection => points_to_render.reverse, 
+                 :as => :point %>
+    <% end %>
   </tr>
 </table>

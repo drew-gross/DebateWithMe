@@ -3,6 +3,11 @@ p
     text-indent:30pt;
 }
 
+h1
+{
+    text-align:center;
+}
+
 .point
 {
     margin:5px;
@@ -36,10 +41,24 @@ p
     width: 500px;
 }
 
-.right
+.leftPoints
 {
     float: right;
+    text-align: right;
+    margin: 5px;
+}
+
+.right
+{
+    float: left;
     width: 500 px;
+}
+
+.rightPoints
+{
+    float: left;
+    text-align: left;
+    margin: 5px;
 }
 
 #footer
