@@ -7,3 +7,4 @@ tmp/
 *.rb#
 *.erb~
 *.css~
+*.js~

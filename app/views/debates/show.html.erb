@@ -6,7 +6,7 @@
 
   <div class="left"> 
     <div class="leftPoints">
-      <b>Supporting Points</b>
+      <b>&lt;&lt;&lt;--- Supporting Points</b>
       <%= render :partial => "points", 
                  :locals => { :points_to_render => @debate.supporting_points,
                               :is_supporting => true,
@@ -16,7 +16,7 @@
 
   <div class="right">
     <div class="rightPoints">
-      <b>Contesting Points</b>
+      <b>Contesting Points ---&gt;&gt;&gt;</b>
       <%= render :partial => "points", 
 	         :locals => { :points_to_render => @debate.contesting_points,
 	                      :is_supporting => false,

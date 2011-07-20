@@ -8,9 +8,17 @@ h1
     text-align:center;
 }
 
+td
+{
+    border:1px solid white;
+}
+
 .point
 {
     margin:5px;
+    width:195px;
+    height:175px;
+    text-align:left;
 }
 
 .supporting
