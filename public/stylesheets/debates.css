@@ -8,7 +8,7 @@ h1
     text-align:center;
 }
 
-td
+.border
 {
     border:1px solid white;
 }

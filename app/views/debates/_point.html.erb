@@ -1,7 +1,7 @@
-<td <%= point.generate_style %> 
-onmouseover="addBorder(this);this.style.cursor='pointer'" 
-onmouseout="removeBorder(this)"
-onclick="window.location='<%= url_for(debate_path(point)) %>'">
+<td class="border" <%= point.generate_style %> 
+    onmouseover="addBorder(this);this.style.cursor='pointer'" 
+    onmouseout="removeBorder(this)"
+    onclick="window.location='<%= url_for(debate_path(point)) %>'">
   <div class="point">
     <%= point.content %>
   </div>
