@@ -1,7 +1,10 @@
 <div id="parents">
   <% if debate.debate == nil then %>
-    <div <%= debate.generate_style %> >
-      <h1><%= link_to debate.proposition, debate_path(debate) %></h1>
+    <div class="border" <%= debate.generate_style %> 
+	 onmouseover="addBorder(this);this.style.cursor='pointer'"
+	 onmouseout="removeBorder(this)"
+	 onclick="window.location='<%= url_for(debate_path(debate)) %>'">
+      <h1><%= debate.proposition %></h1>
     </div>
   <% else %>
     <%= render :partial => "parent_chain", :locals => { :debate => debate.debate } %>
