@@ -1,10 +1,10 @@
 <div id="parents">
   <% if debate.debate == nil then %>
-    <div class="border" <%= debate.generate_style %> 
+    <div id="debateHead" class="border" <%= debate.generate_style %> 
 	 onmouseover="addBorder(this);this.style.cursor='pointer'"
 	 onmouseout="removeBorder(this)"
 	 onclick="window.location='<%= url_for(debate_path(debate)) %>'">
-      <h1><%= debate.proposition %></h1>
+      <%= debate.proposition %>
     </div>
   <% else %>
     <%= render :partial => "parent_chain", :locals => { :debate => debate.debate } %>

@@ -1,7 +1,8 @@
+
 <div id="wrap">
   <h1>DebateWithMe!</h1>
   <p>
-    Debate.me is a website that allows you to have with your friends. Unlike traditional debates, 
+    DebateWithMe is a website that allows you to have tree-like debates with your friends. Unlike traditional debates, 
     each point can have many other points supporting or contesting it, each of which can also have 
     many points supporting or contesting it. Instead of following a linear, back and forth path,
     the debate can flow more like a tree, with with each topic branching off into many new topics.
@@ -14,7 +15,12 @@
   <table>
     <% @debates.find_all{|debate| debate.debate == nil}.sort_by{|debate| debate.created_at}.reverse.each do |debate| %>
     <tr>
-      <td <%= debate.generate_style %> ><%= link_to debate.proposition, debate %></td>
+      <td class="border" <%= debate.generate_style %> 
+	  onmouseover="addBorder(this);this.style.cursor='pointer'"
+	  onmouseout="removeBorder(this)"
+	  onclick="window.location='<%= url_for(debate) %>'">
+	<%= debate.proposition %>
+      </td>
     </tr>
     <% end %>
   </table>
