@@ -54,6 +54,7 @@ h1
     float: right;
     text-align: right;
     margin: 5px;
+    flow: right;
 }
 
 .right
@@ -86,4 +87,9 @@ h1
 {
     text-align: center;
     font-size: 18px;
+}
+
+#leafs
+{
+    width: 100000px;
 }
